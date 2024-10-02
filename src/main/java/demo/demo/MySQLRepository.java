@@ -1,4 +1,4 @@
-package demo.mysqldemo;
+package demo.demo;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import jakarta.annotation.PostConstruct;

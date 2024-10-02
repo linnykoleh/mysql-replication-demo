@@ -1,6 +1,7 @@
-package demo.mysqldemo;
+package demo.demo;
 
 import lombok.Data;
+
 import java.sql.Date;
 
 @Data

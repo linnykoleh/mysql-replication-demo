@@ -1,4 +1,4 @@
-package demo.mysqldemo;
+package demo.demo;
 
 import com.github.javafaker.Faker;
 import lombok.RequiredArgsConstructor;
@@ -7,7 +7,6 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadLocalRandom;
@@ -23,12 +22,10 @@ public class UserService {
 
     @EventListener(ApplicationReadyEvent.class)
     private void start() throws Exception {
-//        createUsers();
         generateUsers();
     }
 
     private void generateUsers() throws Exception {
-//        for 30 seconds save users to database
         var faker = new Faker();
 
         var dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -45,7 +42,6 @@ public class UserService {
             save(faker, startMillis, endMillis);
             count++;
         }
-        System.out.println("Time taken: " + (System.currentTimeMillis() - start) / 1000 + " seconds to create " + count + " users");
     }
 
     private void createUsers() throws Exception {
@@ -68,7 +64,6 @@ public class UserService {
         while (!pool.isTerminated()) {
             Thread.sleep(1000);
         }
-        System.out.println("Time taken: " + (System.currentTimeMillis() - start) / 1000 + " seconds to create 40 million users");
     }
 
     private void saveUser(Faker faker, long startMillis, long endMillis) {
